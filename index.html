@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumufffs - formigas/pantufas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @property --rotate {
+            syntax: "<angle>";
+            initial-value: 132deg;
+            inherits: false;
+        }
+
+        :root {
+            --card-height: 65vh;
+            --card-width: calc(var(--card-height) / 1.5);
+        }
+
+        * {
+            flex-wrap: wrap;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(48, 48, 48);
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            transition: color 0.3s ease;
+        }
+
+        header, section, footer {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            background-color: #6d6d6d;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            background-color: #63a891;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(92, 92, 92);
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #9fd1c6;
+        }
+
+        nav ul li a:focus,
+        nav ul li a.active {
+            background-color: #5ddcff;
+            color: #212534;
+        }
+
+        .card {
+            background: #191c29;
+            width: var(--card-width);
+            height: var(--card-height);
+            padding: 3px;
+            position: relative;
+            border-radius: 6px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            font-size: 1.5em;
+            color: rgb(88 199 250 / 0%);
+            cursor: pointer;
+            font-family: cursive;
+            transition: color 0.3s ease;
+            margin: 20px auto;
+        }
+
+        .card:hover {
+            color: rgb(88 199 250 / 100%);
+        }
+
+        .card:hover:before,
+        .card:hover:after {
+            animation: none;
+            opacity: 0;
+        }
+
+        .card::before {
+            content: "";
+            width: 104%;
+            height: 102%;
+            border-radius: 8px;
+            background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+            position: absolute;
+            z-index: -1;
+            top: -1%;
+            left: -2%;
+            animation: spin 2.5s linear infinite;
+        }
+
+        .card::after {
+            position: absolute;
+            content: "";
+            top: calc(var(--card-height) / 6);
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            transform: scale(0.8);
+            filter: blur(calc(var(--card-height) / 6));
+            background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+            opacity: 1;
+            transition: opacity 0.5s, filter 0.5s, background-color 0.3s;
+            animation: spin 2.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                --rotate: 0deg;
+            }
+
+            100% {
+                --rotate: 360deg;
+            }
+        }
+
+        a {
+            color: rgb(134, 134, 134);
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            margin-top: 2rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #333;
+            color: white;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #727272;
+            color: #212534;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #94eeee;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: rgb(143, 143, 143);
+        }
+
+        #sobre,
+        #produtos,
+        #contato {
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .img {
+            size: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Plumufffs</h1>
+    <h5>O seu site de pantufas para formigas</h5>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    <img src="formiga.png" alt="Formiga">
+</header>
+
+<section id="produtos">
+    <h2>Produtos</h2>
+    <div class="produto">
+        <img src="pantufa1.png" alt="Pantufa para formiga GARFIELD" width="300px" height="300px">
+        <h3>Pantufa para formiga modelo - GARFIELD</h3>
+        <p>R$ 9,99</p>
+        <button>Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="pantufas2.png" alt="Pantufa para formiga Marrom" width="300px" height="300px">
+        <h3>Pantufa para formiga modelo - Marrom</h3>
+        <p>R$ 9,99</p>
+        <button>Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="pantufa3.png" alt="Pantufa para formiga Vaquinha mu" width="300px" height="300px">
+        <h3>Pantufa para formiga modelo - Vaquinha MU</h3>
+        <p>R$ 9,99</p>
+        <button>Comprar</button>
+    </div>
+</section>
+
+<section id="sobre">
+    <h2>Sobre</h2>
+    <p>O site de pantufas para formigas é projetado para vender conforto e estilo de seus pequenos amigos de seis patas.</p>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Entre em contato conosco para encomendas personalizadas ou para mais informações sobre nossos produtos.</p>
+
+    <div class="card">
+        <form action="enviar.php" method="post">
+            <input type="text" name="nome" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu e-mail" required>
+            <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; Plumufffs - Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
